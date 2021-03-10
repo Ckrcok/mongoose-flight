@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Mongoose Flights</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">Flights Lab</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/flight">All Flights</a></li>
+        <li><a href="/flight/create">Create A Flight</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+
+
+  <h2>Enter a New Flight</h2>
+  <form action="/flight" method="POST">
+
+    <div class="container">
+
+        <label for="Airline">Airline:
+            <select  class="browser-default" name="airline">
+          <option value="American">American</option>
+          <option value="Southwest">Southwest</option>
+          <option value="United">United</option>
+        </select>
+      </label>
+
+    <label for="Airport">Airport:
+        <select  class="browser-default">
+      <option value="DEN">DEN</option>
+      <option value="DFW">DFW</option>
+      <option value="AUS">AUS</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+
+    </label><br>
+
+    <label>Flight Number
+        <input  class="input-field col s6" type="number" name="flightNo" required min="10" max="9999">
+    </label><br>
+    <label>depart:
+        <input  type="date" name="depart" class="datepicker" >
+    </label><br>
+
+    <input  type="submit" value="Add Flight" class="btn waves-effect waves-light">
+  </form>
+
+  </div>
+</body>
+</html>

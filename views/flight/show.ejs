@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Flights Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo center">Flights Lab</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/flight">All Flights</a></li>
+          <li><a href="/flight/create">Create A Flight</a></li>
+        </ul>
+      </div>
+    </nav>
+
+      <div class="container">
+
+    <h1>The <%= flight.flightNo %> Flight</h1>
+    <div class="centered">
+        <hr>
+          <tr >
+              <td><i class="small material-icons" >spa</i> Airline - <%= flight.airline %></td><br>
+              <td><i class="small material-icons">flight</i>  Airport - <%= flight.airport %></td><br>
+              <td><i class="small material-icons">confirmation_number</i>  Flight Number - <%= flight.flightNo %></td><br>
+              <td><i class="small material-icons">flight_takeoff</i>  Departs At - <%= flight.depart.getUTCFullYear() + '/' + (flight.depart.getUTCMonth() + 1) + '/' + flight.depart.getUTCDate()  %></td><br>
+              <hr>
+            <% for (f of flight.destinations){ %>
+              <td><i class="small material-icons">flight_land</i>  Lands At - <%= f.airport %>       <i class="small material-icons">flag</i>  Arrive At - <%= f.arrival.getUTCFullYear() + '/' + (f.arrival.getUTCMonth() + 1) + '/' + f.arrival.getUTCDate() %></td><br>
+            <% } %>
+          </tr>
+        <hr>
+
+
+<form  action="/flight/show/<%= flight.id %>" method="post">
+
+
+        <i class="small material-icons" >flight_land</i>
+        <label for="Destenetion"> Airport Of Arrival:
+            <select  class="browser-default" name="airport">
+          <option value="AUS">AUS</option>
+          <option value="DFW">DFW</option>
+          <option value="DEN">DEN</option>
+          <option value="LAX">LAX</option>
+          <option value="SAN">SAN</option>
+        </select>
+      </label>
+  <i class="small material-icons" >access_time</i>
+        <label  for="Time Of arrival">Time Of arrival:
+            <input  type="date" name="arrival" class="datepicker" required>
+        </label><br>
+    </label>
+  <input  type="submit" value="Add Flight" class="btn waves-effect waves-light">
+    </div>
+  </div>
+</form>
+  </body>
+</html>
