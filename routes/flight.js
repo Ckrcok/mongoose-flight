@@ -22,4 +22,10 @@ router.get("/show/:id", flightCtrl.show);
 /* POST from show flight page. */
 router.post("/show/:id", flightCtrl.add);
 
+/* GET formm tickt page. */
+router.get("/:id/tickets/new", flightCtrl.createTicket);
+
+/* POST formm tickt page. */
+router.post("/:id/tickets/new", flightCtrl.giveTicket);
+
 module.exports = router;

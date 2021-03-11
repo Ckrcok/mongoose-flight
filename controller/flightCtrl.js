@@ -1,4 +1,5 @@
 const Flight = require("../models/Flight");
+const Ticket = require("../models/Ticket");
 
 //exports
 module.exports = {
@@ -7,10 +8,12 @@ module.exports = {
   create,
   show,
   add,
+  createTicket,
+  giveTicket
 };
 
 function viewFlights(req, res) {
-  Flight.find({}, function (err, flights) {
+  Flight.find({}, function(err, flights) {
     console.log(flights);
     res.render("flight/index", { flights });
   });
@@ -37,7 +40,7 @@ async function add(req, res) {
 
   let destination = {
     airport: req.body.airport,
-    arrival: req.body.arrival,
+    arrival: req.body.arrival
   };
   console.log("this is the destination airpot " + destination.airport);
 
@@ -47,4 +50,27 @@ async function add(req, res) {
   flight.destinations.push(destination);
   await flight.save();
   res.redirect("/flight/show/" + flight.id);
+}
+
+function createTicket(req, res) {
+  res.render("flight/ticket");
+}
+
+async function giveTicket(req, res) {
+  try {
+    let flight = await Flight.findById(req.params.id);
+
+    let ticket = {
+      seat: req.body.seat,
+      price: Math.floor(Math.random() * 1000)
+    };
+
+    console.log(ticket);
+
+    flight.tickets.push(ticket);
+    await flight.save();
+    res.redirect("/flight/show/" + flight.id);
+  } catch (error) {
+    console.error(error);
+  }
 }

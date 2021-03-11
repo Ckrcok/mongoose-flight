@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Flights Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo center">Flights Lab</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/flight">All Flights</a></li>
+          <li><a href="/flight/create">Create A Flight</a></li>
+        </ul>
+      </div>
+    </nav>
+
+      <div class="container">
+
+
+    <h1><i class="medium material-icons" >airline_seat_recline_normal</i>Choose Your Flight Seat</h1>
+
+    <div class="centered">
+
+
+<form action="" method="post">
+
+
+        <div class="row">
+       <div class="col s12 m5">
+         <div class="card">
+           <div class="card-image">
+             <img src="https://www.washingtonpost.com/resizer/Z_WwpxrXCIKN78qkDMFJnGeLR0g=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/SVMY55L54NDPJLHL4X5SEO4GYM.gif">
+             <span class="card-title  black-text ">Choose Your Seat</span>
+           </div>
+           <div class="card-content">
+             <p>Choose your seat, you can choose latters between A - F and two Numbers Between 1 - 9</p>
+             <div class="">
+                example A42
+             </div>
+           </div>
+           <div class="card-action">
+                <input type="text" name="seat" required pattern="[A-F][1-9]\d?">
+                <input  type="submit" value="Book A Seat" class="btn waves-effect waves-light">
+           </div>
+         </div>
+       </div>
+     </div>
+
+</form>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+  </body>
+</html>
