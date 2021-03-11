@@ -33,7 +33,24 @@
               <td><i class="small material-icons">flight_land</i>  Lands At - <%= f.airport %>       <i class="small material-icons">flag</i>  Arrive At - <%= f.arrival.getUTCFullYear() + '/' + (f.arrival.getUTCMonth() + 1) + '/' + f.arrival.getUTCDate() %></td><br>
             <% } %>
           </tr>
+
         <hr>
+
+        <% for (let t of flight.tickets){ %>
+          <div class="row">
+            <div class="col s2 m6">
+              <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">Ticket Details</span>
+                  Seat : <%= t.seat %><br>
+                  Price : $<%= t.price %>
+                </div>
+              </div>
+            </div>
+          </div>
+            <% }  %>
+              <hr>
+
 
 
 <form  action="/flight/show/<%= flight.id %>" method="post">
@@ -54,6 +71,7 @@
             <input  type="date" name="arrival" class="datepicker" required>
         </label><br>
     </label>
+
 
       <a  class="btn waves-effect waves-light" href="/flight/<%= flight.id %>/tickets/new"> New Ticket</a>
 
